@@ -1,54 +1,72 @@
 @charset "UTF-8";
 
- #header {
-	     margin-left: 300px;
-	     padding: 5px;
-	     width: 800px;
-	     height: 150px;
- }
- 
- input[type="text"]
-{
-    font-size:20px;
+#header {
+	margin-left: 400px;
+	padding: 5px;
+	width: 800px;
+	height: 30px;
+}
+
+#text1 {
+	margin-left: 450px;
+	height: 30px;
+}
+
+input[type="text"] {
+	font-size: 20px;
 }
 
 #empfaenger {
-    border: 2px solid black;
-    color:mediumvioletred;
-    height: 30px;
+	
+	border: 2px solid black;
+	color: mediumvioletred;
+	height: 30px;
 }
 
 #bic {
-    border: 2px solid black;
-    color:mediumvioletred;
-    height: 30px;
+	border: 2px solid black;
+	color: mediumvioletred;
+	height: 30px;
 }
 
 #iban {
-    border: 2px solid black;
-    color:mediumvioletred;
-    height: 30px;
+	border: 2px solid black;
+	color: mediumvioletred;
+	height: 30px;
 }
 
 #betrag {
-    border: 2px solid black;
-    color:mediumvioletred;
-    height: 30px;
+	border: 2px solid black;
+	color: mediumvioletred;
+	height: 30px;
 }
 
 #datum {
-    border: 2px solid black;
-    color:mediumvioletred;
-    height: 30px;
+	border: 2px solid black;
+	color: mediumvioletred;
+	height: 30px;
 }
 
 #eingabe {
-    border: 2px solid black;
-    color:mediumvioletred;
-    height: 30px
+	border: 2px solid black;
+	color: mediumvioletred;
+	height: 30px
 }
 
-body { 
+body {
+	background-image: url("/bilder/pexels-johannes-plenio-2850287.jpg");
 	
-	background-image: url("../bilder/lake-6627781_340.jpg")
-}   
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+}
+
+#suche{
+	
+	margin-left: 450px;
+}
+
+#ausgabe{
+	margin-left: 450px;
+}
