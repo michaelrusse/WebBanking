@@ -1,0 +1,54 @@
+@charset "UTF-8";
+
+ #header {
+	     margin-left: 300px;
+	     padding: 5px;
+	     width: 800px;
+	     height: 150px;
+ }
+ 
+ input[type="text"]
+{
+    font-size:20px;
+}
+
+#empfaenger {
+    border: 2px solid black;
+    color:mediumvioletred;
+    height: 30px;
+}
+
+#bic {
+    border: 2px solid black;
+    color:mediumvioletred;
+    height: 30px;
+}
+
+#iban {
+    border: 2px solid black;
+    color:mediumvioletred;
+    height: 30px;
+}
+
+#betrag {
+    border: 2px solid black;
+    color:mediumvioletred;
+    height: 30px;
+}
+
+#datum {
+    border: 2px solid black;
+    color:mediumvioletred;
+    height: 30px;
+}
+
+#eingabe {
+    border: 2px solid black;
+    color:mediumvioletred;
+    height: 30px
+}
+
+body { 
+	
+	background-image: url("../bilder/lake-6627781_340.jpg")
+}   

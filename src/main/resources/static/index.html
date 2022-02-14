@@ -3,20 +3,56 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>WebBanking</title>
-		<link href="index.css" rel="stylesheet">
+		<link href="css/index.css" rel="stylesheet">
 		<script src="index.js" type="module"></script>
 	</head>
 	
 	<body>
-		<h1>Willkommen beim WebBanking</h1>
+		<header id="header">
+			<h1>Willkommen beim WebBanking</h1>
+		</header>
 		<div>
 			<p>Hier können Sie sich eine Liste der Kontoauszüge ansehen</p>
 		</div><br>
+		
 		<div id="suche">
 			<div>
 				<p>Suche</p>
 				<input id="eingabe" type="text" placeholder="Suchbegriff eingeben">
 			</div><br>
+			<div>
+				<button id="suchestarten">Suche starten</button>
+			</div><br>
+			<br>
 		</div> 
+		
+		<div id="ausgabe">
+			<div>
+				<p>Empfänger</p>
+				<input id="empfaenger" type="text" placeholder="Wird aus JS beschrieben">
+			</div><br>			
+		
+			<div>
+				<p>BIC</p>
+				<input id="bic" type="text" placeholder="Wird aus JS beschrieben">
+			</div><br>
+			
+			<div>
+				<p>IBAN</p>
+				<input id="iban" type="text" placeholder="Wird aus JS beschrieben">
+			</div><br>
+			
+			<div>
+				<p>Betrag</p>
+				<input id="betrag" type="text" placeholder="Wird aus JS beschrieben">
+			</div><br>
+			
+			<div>
+				<p>Datum</p>
+				<input id="datum" type="text" placeholder="Wird aus JS beschrieben">
+			</div><br>
+		
+		</div>
+		
 	</body>
 </html>
