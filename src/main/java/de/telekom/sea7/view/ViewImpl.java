@@ -1,74 +1,36 @@
 package de.telekom.sea7.view;
 
+import java.time.LocalDateTime;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-/**
- * Was ist ein Controller
- *  das ist eine @Component, aber irgendwie auch mehr
- *  zuständig für die View
- *  
- *  alles weitere ergibt sich eigentlich aus @Component
- *  oder ist spezifisch für den View
- * 
- * @author sea5
- *
- */
+import de.telekom.sea7.model.Zahlungen;
+
 @Controller
 public class ViewImpl {
-	
-/**
- * 
- * GetMapping:  Tag, der die Verknüfung zur URL definiert
- * 
- * @return
- */
-	
-	@GetMapping("/index.html")//also : http//localhost;8080/index.html
-	@ResponseBody //return direkt an den Browser
-	public String getHTML() {
-		
-		String html = 
-				"<!DOCTYPE html>"
-				+"<html>"
-				+	"<head>"
-				+		"<meta charset='UTF-8'>"
-				+		"<title>WebBanging</title>"
-				+		"<link href='/index.css' rel='stylesheet'>"
-				+	"</head>"
-				+	"<body>"
-				+		"<header id=\"header\">"
-				+			"<h1>Willkommen beim WebBanking</h1>"
-				+		"</header>"
-				+	"</body>"
-				+"</html>"		
-				;
-				
-		return html;
-	}
-	
-	@GetMapping("/index.css")
+
+	@Autowired
+	Zahlungen zahlung;
+
+	@GetMapping("/zahlung.json")
 	@ResponseBody
-	public String getCSS() {
-		
-		String css = 
-				"@charset 'UTF-8';"
-				+"#header{"
-				+	"margin-left: 400px;"
-				+	"padding: 5px;"
-				+ "	width: 800px;"
-				+ "	height: 30px;"
-				+	"}"	
-				+"body {"
-				+"background-image: url('/bilder/pexels-johannes-plenio-2850287.jpg');"
-				+"background-position: center;"
-				+"background-repeat: no-repeat;"
-				+"background-size: cover;"
-				+"position: relative;"
-				+"}"
-				;
-				
-		return css;
+	public String getJson() {
+		float betrag = zahlung.getZahlung().getBetrag();
+		String empfaenger = zahlung.getZahlung().getEmpfaenger();
+		String iban = zahlung.getZahlung().getIban();
+		String bic = zahlung.getZahlung().getBic();
+		String verwendungszweck = zahlung.getZahlung().getVerwendungszweck();
+		LocalDateTime datum = zahlung.getZahlung().getDatum();
+
+		String Json = "{" + "\"Betrag\"" + ":" + "\"" + betrag + "\"" + "," + "\"Empfaenger\"" + ":" + "\"" + empfaenger
+				+ "\"" + "," + "\"Iban\"" + ":" + "\"" + iban + "\"" + "," + "\"BIC\"" + ":" + "\"" + bic + "\"" + ","
+				+ "\"Verwendungszweck\"" + ":" + "\"" + verwendungszweck + "\"" + "," + "\"Datum\"" + ":" + "\"" + datum
+				+ "\"" + "}";
+
+		return Json;
 	}
+
 }
