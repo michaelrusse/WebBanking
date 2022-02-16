@@ -4,11 +4,29 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+/**
+ * Was ist ein Controller
+ *  das ist eine @Component, aber irgendwie auch mehr
+ *  zuständig für die View
+ *  
+ *  alles weitere ergibt sich eigentlich aus @Component
+ *  oder ist spezifisch für den View
+ * 
+ * @author sea5
+ *
+ */
 @Controller
 public class ViewImpl {
 	
-	@GetMapping("/index.html")
-	@ResponseBody
+/**
+ * 
+ * GetMapping:  Tag, der die Verknüfung zur URL definiert
+ * 
+ * @return
+ */
+	
+	@GetMapping("/index.html")//also : http//localhost;8080/index.html
+	@ResponseBody //return direkt an den Browser
 	public String getHTML() {
 		
 		String html = 
