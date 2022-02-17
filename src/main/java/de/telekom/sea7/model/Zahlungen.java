@@ -1,24 +1,45 @@
 package de.telekom.sea7.model;
 
-import java.time.LocalDateTime;
-
 import org.springframework.stereotype.Component;
-
+import java.util.ArrayList;
+import java.time.LocalDateTime;
+import java.util.Iterator;
 
 @Component
 public class Zahlungen {
-	private Zahlung zahlung;
-	
+	private ArrayList<Zahlung> zahlungen;
+
 	public Zahlungen() {
-		this.zahlung = new Zahlung(12.45f, "Donald Duck", "DE123456", "BIC1234", "Reisekosten",LocalDateTime.now());
+		
+		zahlungen = new ArrayList<>();
+		LocalDateTime datum =LocalDateTime.now();
+		Zahlung zahlung1 = new Zahlung(12.30f, "Hans Mustermann", "DE9944335566", "BIC87648", "Verwendungszweck1",datum);
+		Zahlung zahlung2 = new Zahlung(15.70f, "Franz Mustermann", "DE9944335566", "BIC87648", "Verwendungszweck2",datum );
+		Zahlung zahlung3 = new Zahlung(13.40f, "Hubertus Mustermann", "DE9944335566", "BIC87648", "Verwendungszweck3",datum);
+		zahlungen.add(zahlung1);
+		zahlungen.add(zahlung2);
+		zahlungen.add(zahlung3);
+		
 	}
 
-	public Zahlung getZahlung() {
-		return zahlung;
+	public void add(float betrag, String empfaenger, String iban, String bic, String verwendungszweck,
+			LocalDateTime datum) {
+		Zahlung zahlung = new Zahlung(betrag, empfaenger, iban, bic, verwendungszweck, datum);
+		zahlungen.add(zahlung);
 	}
 
-	public void setZahlung(Zahlung zahlung) {
-		this.zahlung = zahlung;
+	public Iterator iterator() {
+// TODO Auto-generated method stub
+		return zahlungen.iterator();
 	}
 
+	public int getIndex(Zahlung horst) {
+		return this.zahlungen.indexOf(horst);
+
+	}
+
+	public Zahlung getZahlung(int index) {
+		return (Zahlung) zahlungen.get(index);
+	}
+	
 }
