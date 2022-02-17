@@ -25,7 +25,7 @@ public class ViewImpl_Sicherung {
  * @return
  */
 	
-	@GetMapping("/index.html")//also : http//localhost;8080/index.html
+	@GetMapping("/index2.html")//also : http//localhost;8080/index.html
 	@ResponseBody //return direkt an den Browser
 	public String getHTML() {
 		

@@ -13,17 +13,17 @@ import de.telekom.sea7.model.Zahlungen;
 public class ViewImpl {
 
 	@Autowired
-	Zahlungen zahlung;
+	Zahlungen zahlungen;
 
-	@GetMapping("/zahlung.json")
+	@GetMapping("json/zahlung.json")
 	@ResponseBody
 	public String getJson() {
-		float betrag = zahlung.getZahlung().getBetrag();
-		String empfaenger = zahlung.getZahlung().getEmpfaenger();
-		String iban = zahlung.getZahlung().getIban();
-		String bic = zahlung.getZahlung().getBic();
-		String verwendungszweck = zahlung.getZahlung().getVerwendungszweck();
-		LocalDateTime datum = zahlung.getZahlung().getDatum();
+		float betrag = zahlungen.getZahlung(1).getBetrag();
+		String empfaenger = zahlungen.getZahlung(1).getEmpfaenger();
+		String iban = zahlungen.getZahlung(1).getIban();
+		String bic = zahlungen.getZahlung(1).getBic();
+		String verwendungszweck = zahlungen.getZahlung(1).getVerwendungszweck();
+		LocalDateTime datum = zahlungen.getZahlung(1).getDatum();
 
 		String Json = "{" + "\"Betrag\"" + ":" + "\"" + betrag + "\"" + "," + "\"Empfaenger\"" + ":" + "\"" + empfaenger
 				+ "\"" + "," + "\"Iban\"" + ":" + "\"" + iban + "\"" + "," + "\"BIC\"" + ":" + "\"" + bic + "\"" + ","
