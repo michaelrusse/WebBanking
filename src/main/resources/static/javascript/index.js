@@ -30,7 +30,7 @@ function mit_suche_daten_abrufen (){
     var key = document.getElementById("eingabe").value;
 
     //Verarbeitung
-    fetch("json/" + key + ".json") //Url:was wird geholt
+    fetch("json/zahlung.json?zahlungnummer="+ key) //Url:was wird geholt
     .then(empfaenger1)             // was macht man damit: auspacken
     .then(empfaenger2);            // was macht man damit: ausgeben 
 }
