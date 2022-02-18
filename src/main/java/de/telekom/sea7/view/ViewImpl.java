@@ -5,25 +5,26 @@ import java.time.LocalDateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import de.telekom.sea7.model.Zahlungen;
+import de.telekom.sea7.services.ZahlungenService;
 
 @Controller
 public class ViewImpl {
 
 	@Autowired
-	Zahlungen zahlungen;
+	ZahlungenService zahlungenService;
 
 	@GetMapping("json/zahlung.json")
 	@ResponseBody
-	public String getJson() {
-		float betrag = zahlungen.getZahlung(1).getBetrag();
-		String empfaenger = zahlungen.getZahlung(1).getEmpfaenger();
-		String iban = zahlungen.getZahlung(1).getIban();
-		String bic = zahlungen.getZahlung(1).getBic();
-		String verwendungszweck = zahlungen.getZahlung(1).getVerwendungszweck();
-		LocalDateTime datum = zahlungen.getZahlung(1).getDatum();
+	public String getJson(@RequestParam("zahlungnummer") int zahlungsnummer) {
+		float betrag = zahlungenService.getZahlungen().getZahlung(zahlungsnummer).getBetrag();
+		String empfaenger = zahlungenService.getZahlungen().getZahlung(zahlungsnummer).getEmpfaenger();
+		String iban = zahlungenService.getZahlungen().getZahlung(zahlungsnummer).getIban();
+		String bic = zahlungenService.getZahlungen().getZahlung(zahlungsnummer).getBic();
+		String verwendungszweck = zahlungenService.getZahlungen().getZahlung(zahlungsnummer).getVerwendungszweck();
+		LocalDateTime datum = zahlungenService.getZahlungen().getZahlung(zahlungsnummer).getDatum();
 
 		String Json = "{" + "\"Betrag\"" + ":" + "\"" + betrag + "\"" + "," + "\"Empfaenger\"" + ":" + "\"" + empfaenger
 				+ "\"" + "," + "\"Iban\"" + ":" + "\"" + iban + "\"" + "," + "\"BIC\"" + ":" + "\"" + bic + "\"" + ","
@@ -32,5 +33,16 @@ public class ViewImpl {
 
 		return Json;
 	}
+
+	/*
+	 * @GetMapping("/michael/horst")
+	 * 
+	 * @ResponseBody public int getZahlungNummer(@RequestParam("zahlungnummer") int
+	 * zahlungsnummer) {
+	 * 
+	 * return zahlungsnummer;
+	 * 
+	 * }
+	 */
 
 }
