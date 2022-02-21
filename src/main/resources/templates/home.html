@@ -17,10 +17,12 @@
 		
 		<ul th:each="zahlung : ${zahlungen}">
 
-   			<li th:text="${zahlung.betrag}">2.04</li>
-
   			<li th:text="${zahlung.empfaenger}">Donald Duck</li>
-
+  			<li th:text="${zahlung.bic}">RTEZTF</li>
+  			<li th:text="${zahlung.iban}">DE123456</li>
+  			<li th:text="${zahlung.verwendungszweck}">Test</li>
+			<li th:text="${zahlung.betrag}">2.04</li>
+			<li th:text="${zahlung.datum}">datum</li>
 		</ul>
 
    		
