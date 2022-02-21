@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+
+		<title>Thymeleaf</title>
+
+			<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+
+	</head>
+
+	<body>
+
+		<h1 th:text="|Hello ${name}!|">Hello World!</h1>
+		
+		
+		<ul th:each="zahlung : ${zahlungen}">
+
+   			<li th:text="${zahlung.betrag}">2.04</li>
+
+  			<li th:text="${zahlung.empfaenger}">Donald Duck</li>
+
+		</ul>
+
+   		
+
+	</body>
+
+</html>
