@@ -6,10 +6,10 @@ import java.time.LocalDateTime;
 import java.util.Iterator;
 
 
-public class Zahlungen {
+public class Zahlungen implements Iterable<Zahlung> {
 	private ArrayList<Zahlung> zahlungen;
 
-	public Zahlungen() {
+	public Zahlungen()  {
 		
 		zahlungen = new ArrayList<>();
 		LocalDateTime datum =LocalDateTime.now();
@@ -29,7 +29,7 @@ public class Zahlungen {
 		zahlungen.add(zahlung);
 	}
 
-	public Iterator iterator() {
+	public Iterator<Zahlung> iterator() {
 // TODO Auto-generated method stub
 		return zahlungen.iterator();
 	}

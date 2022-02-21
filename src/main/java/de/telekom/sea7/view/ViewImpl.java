@@ -1,5 +1,4 @@
 package de.telekom.sea7.view;
-
 import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,11 +7,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import de.telekom.sea7.model.Zahlung;
 import de.telekom.sea7.services.ZahlungenService;
+
 
 @Controller
 public class ViewImpl {
-
+//	private Zahlungen zahlungen = new Zahlungen();
 	@Autowired
 	ZahlungenService zahlungenService;
 
@@ -34,15 +35,33 @@ public class ViewImpl {
 		return Json;
 	}
 
-	/*
-	 * @GetMapping("/michael/horst")
-	 * 
-	 * @ResponseBody public int getZahlungNummer(@RequestParam("zahlungnummer") int
-	 * zahlungsnummer) {
-	 * 
-	 * return zahlungsnummer;
-	 * 
-	 * }
-	 */
+@GetMapping("json/zahlungen.json")
+	@ResponseBody
+	public String getJsonZahlungen() {
+		
+		String json = "";
+		boolean withkomma = false; 
+
+		for (Zahlung z : zahlungenService.getZahlungen()) {
+			float betrag = z.getBetrag();
+			String empfaenger = z.getEmpfaenger();
+			String iban = z.getIban();
+			String bic = z.getBic();
+			String verwendungszweck = z.getVerwendungszweck();
+			LocalDateTime datum = z.getDatum();
+			if (withkomma) {
+				json = json + ",";
+			}else {
+				withkomma = true;
+			}
+			 json = json + "{" + "\"Betrag\"" + ":" + "\"" + betrag + "\"" + "," + "\"Empfaenger\"" + ":" + "\""
+					+ empfaenger + "\"" + "," + "\"Iban\"" + ":" + "\"" + iban + "\"" + "," + "\"BIC\"" + ":" + "\""
+					+ bic + "\"" + "," + "\"Verwendungszweck\"" + ":" + "\"" + verwendungszweck + "\"" + ","
+					+ "\"Datum\"" + ":" + "\"" + datum + "\"" + "}";
+
+		}
+		return "[" + json + "]";
+	}
 
 }
+
