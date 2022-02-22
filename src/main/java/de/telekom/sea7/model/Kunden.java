@@ -1,10 +1,9 @@
 package de.telekom.sea7.model;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class Kunden {
+public class Kunden implements Iterable<Kunde>{
 	private ArrayList<Kunde> kunden;
 	
 public Kunden() {
@@ -26,7 +25,7 @@ public Kunden() {
 		zahlungen.add(zahlung);
 	}*/
 
-	public Iterator iterator() {
+	public Iterator<Kunde>iterator() {
 // TODO Auto-generated method stub
 		return kunden.iterator();
 	}

@@ -1,6 +1,6 @@
 package de.telekom.sea7.model;
 
-import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 import java.time.LocalDateTime;
 import java.util.Iterator;

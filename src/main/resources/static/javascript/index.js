@@ -9,20 +9,20 @@ function empfaenger1( antwort ){
 }
 
 function empfaenger2(zahlung){  //return von empfänger1 wird an empänger 2 übergeben.
-//    console.log(zahlung);
-    console.log(zahlung.Betrag);
-    console.log(zahlung.Empfaenger);
-    console.log(zahlung.Iban);
-    console.log(zahlung.BIC);
-    console.log(zahlung.Verwendungszweck);
-    console.log(zahlung.Datum);
+//	console.log(zahlung);
+    console.log(zahlung.betrag);
+    console.log(zahlung.empfaenger);
+    console.log(zahlung.iban);
+    console.log(zahlung.bic);
+    console.log(zahlung.verwendungszweck);
+    console.log(zahlung.datum);
     
-    document.getElementById("betrag").value = zahlung.Betrag;
-    document.getElementById("empfaenger").value = zahlung.Empfaenger;
-    document.getElementById("iban").value = zahlung.Iban;
-    document.getElementById("bic").value = zahlung.BIC;
-    document.getElementById("verwendungszweck").value = zahlung.Verwendungszweck;
-    document.getElementById("datum").value = zahlung.Datum;
+    document.getElementById("betrag").value = zahlung.betrag;
+    document.getElementById("empfaenger").value = zahlung.empfaenger;
+    document.getElementById("iban").value = zahlung.iban;
+    document.getElementById("bic").value = zahlung.bic;
+    document.getElementById("verwendungszweck").value = zahlung.verwendungszweck;
+    document.getElementById("datum").value = zahlung.datum;
 }
 
 function mit_suche_daten_abrufen (){
@@ -30,7 +30,7 @@ function mit_suche_daten_abrufen (){
     var key = document.getElementById("eingabe").value;
 
     //Verarbeitung
-    fetch("json/zahlung.json?zahlungnummer="+ key) //Url:was wird geholt
+    fetch("/zahlung/"+ key) //Url:was wird geholt
     .then(empfaenger1)             // was macht man damit: auspacken
     .then(empfaenger2);            // was macht man damit: ausgeben 
 }
