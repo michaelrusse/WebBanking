@@ -42,7 +42,7 @@ public class ViewImpl {
 		String json = "";
 		boolean withkomma = false; 
 
-		for (Zahlung z : zahlungenService.getZahlungen()) {
+		for (Zahlung z : zahlungenService.getZahlungen()) {			
 			float betrag = z.getBetrag();
 			String empfaenger = z.getEmpfaenger();
 			String iban = z.getIban();

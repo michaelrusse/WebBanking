@@ -1,15 +1,30 @@
 @charset "UTF-8";
 
 #header {
-	margin-left: 400px;
+	margin-left: 600px;
 	padding: 5px;
 	width: 800px;
 	height: 30px;
 }
 
 #text1 {
-	margin-left: 450px;
-	height: 30px;
+	margin-left: 700px;
+	height: 20px;
+}
+
+#text2 {
+	margin-left: 645px;
+	height: 20px;
+}
+
+#text3 {
+	margin-left: 610px;
+	height: 20px;
+}
+
+#text4 {
+	margin-left: 625px;
+	height: 20px;
 }
 
 input[type="text"] {
@@ -48,6 +63,50 @@ input[type="text"] {
 }
 
 #eingabe {
+	margin-left: 740px;
+	border: 2px solid black;
+	color: mediumvioletred;
+	height: 30px
+}
+
+#verwendungszweck {
+	border: 2px solid black;
+	color: mediumvioletred;
+	height: 30px
+}
+
+#vorname {
+	
+	border: 2px solid black;
+	color: mediumvioletred;
+	height: 30px;
+}
+
+#nachname {
+	border: 2px solid black;
+	color: mediumvioletred;
+	height: 30px;
+}
+
+#strasse {
+	border: 2px solid black;
+	color: mediumvioletred;
+	height: 30px;
+}
+
+#hausnummer {
+	border: 2px solid black;
+	color: mediumvioletred;
+	height: 30px;
+}
+
+#plz {
+	border: 2px solid black;
+	color: mediumvioletred;
+	height: 30px;
+}
+
+#ort {
 	border: 2px solid black;
 	color: mediumvioletred;
 	height: 30px
@@ -62,11 +121,21 @@ body {
 	position: relative;
 }
 
-#suche{
+#suchestarten{
 	
-	margin-left: 450px;
+	margin-left: 850px;
+}
+
+#hauptmenue{
+	
+	margin-left: 820px;
 }
 
 #ausgabe{
-	margin-left: 450px;
+	margin-left: 740px;
+}
+
+#menue{
+	
+	margin-left: 770px;
 }
