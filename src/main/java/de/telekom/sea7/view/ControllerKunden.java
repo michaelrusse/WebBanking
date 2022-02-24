@@ -3,6 +3,8 @@ package de.telekom.sea7.view;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import de.telekom.sea7.model.Kunde;
@@ -25,6 +27,17 @@ public class ControllerKunden {
 	@GetMapping("/kunde/{kundenummer}")
 	public Kunde getKunde(@PathVariable("kundenummer") int kundenummer) {
 		return kundenService.getKunden().getKunde(kundenummer);
+	}
+	
+	@PostMapping("/kunde/")
+	public String addKunden(@RequestBody Kunde kunde) {
+		Kunden kunden;
+		kunden = kundenService.getKunden();
+		kunden.add(kunde);
+		return "Neuer Kunde angelegt";
+		
+		
+		
 	}
 
 }

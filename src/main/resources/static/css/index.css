@@ -27,6 +27,11 @@
 	height: 20px;
 }
 
+#text5 {
+	margin-left: 685px;
+	height: 20px;
+}
+
 input[type="text"] {
 	font-size: 20px;
 }
@@ -128,7 +133,7 @@ body {
 
 #hauptmenue{
 	
-	margin-left: 820px;
+	margin-left: 800px;
 }
 
 #ausgabe{
@@ -138,4 +143,9 @@ body {
 #menue{
 	
 	margin-left: 770px;
+}
+
+#tabelle{
+	
+	margin-left: 350px;
 }

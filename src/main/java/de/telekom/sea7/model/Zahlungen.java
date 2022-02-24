@@ -7,40 +7,49 @@ import java.util.Iterator;
 
 
 public class Zahlungen implements Iterable<Zahlung> {
-	private ArrayList<Zahlung> zahlungen;
+	private ArrayList<Zahlung> zahlungenArrayList;
 
 	public Zahlungen()  {
 		
-		zahlungen = new ArrayList<>();
+		zahlungenArrayList = new ArrayList<>();
 		LocalDateTime datum =LocalDateTime.now();
 		Zahlung zahlung1 = new Zahlung(12.30f, "Hans Mustermann", "DE9944335566", "BIC87648", "Verwendungszweck1",datum);
 		Zahlung zahlung2 = new Zahlung(15.70f, "Franz Mustermann", "DE9944335566", "BIC87648", "Verwendungszweck2",datum );
 		Zahlung zahlung3 = new Zahlung(13.40f, "Hubertus Mustermann", "DE9944335566", "BIC87648", "Verwendungszweck3",datum);
 		Zahlung zahlung4 = new Zahlung(12.45f, "Donald Duck", "DE123456", "BIC1234", "Reisekosten",datum);
-		zahlungen.add(zahlung1);
-		zahlungen.add(zahlung2);
-		zahlungen.add(zahlung3);
-		zahlungen.add(zahlung4);		
+		zahlungenArrayList.add(zahlung1);
+		zahlungenArrayList.add(zahlung2);
+		zahlungenArrayList.add(zahlung3);
+		zahlungenArrayList.add(zahlung4);		
 	}
 
-	public void add(float betrag, String empfaenger, String iban, String bic, String verwendungszweck,
-			LocalDateTime datum) {
-		Zahlung zahlung = new Zahlung(betrag, empfaenger, iban, bic, verwendungszweck, datum);
-		zahlungen.add(zahlung);
+	public void add(Zahlung zahlung) {
+		zahlungenArrayList.add(zahlung);
 	}
 
 	public Iterator<Zahlung> iterator() {
 // TODO Auto-generated method stub
-		return zahlungen.iterator();
+		return zahlungenArrayList.iterator();
 	}
 
 	public int getIndex(Zahlung zahlung) {
-		return this.zahlungen.indexOf(zahlung);
+		return this.zahlungenArrayList.indexOf(zahlung);
 
 	}
 	public Zahlung getZahlung(int index) {
-		return zahlungen.get(index);
+		return zahlungenArrayList.get(index);
 	}
+
+	public void setZahlungenArrayList(ArrayList<Zahlung> zahlungenArrayList) {
+		this.zahlungenArrayList = zahlungenArrayList;
+	}
+
+	public void delete(int zahlungsnummer) {
+		zahlungenArrayList.remove(zahlungsnummer);
+		
+	}
+	
+	
 	
 /*	public Zahlung getZahlung(int index) {
 		return (Zahlung) zahlungen.get(index);

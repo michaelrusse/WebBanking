@@ -12,6 +12,10 @@ public class Zahlung {
 	private String verwendungszweck;
 	private LocalDateTime datum;
 	
+	public Zahlung() {
+		
+	}
+	
 	public Zahlung( float betrag, String empfaenger, String iban, String bic, String verwendungszweck, LocalDateTime datum)  {
 		this.betrag = betrag;
 		this.empfaenger = empfaenger;
