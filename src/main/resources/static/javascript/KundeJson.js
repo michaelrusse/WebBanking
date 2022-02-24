@@ -37,4 +37,59 @@ function mit_suche_daten_abrufen (){
     .then(empfaenger2);            // was macht man damit: ausgeben 
 }
 
+function verschicken() {
+
+	// URL:
+	// http(s): Hypertext Transfer Protocol (s=secure)
+	// ://
+	// host: Gastgeber - ein Computer im Netzwerk
+	// port: 80, 8000 - Nebenstelle
+	// pfad/auf/eine - Verzeichnis
+	// datei - "Der Endpunkt"
+	//
+	var url = "/kunde/";
+
+	var vorname = document.getElementById("vorname").value; // statt "Paul" ... ?
+	var nachname = document.getElementById("nachname").value;
+	var strasse = document.getElementById("strasse").value;
+	var hausnummer = document.getElementById("hausnummer").value;
+	var plz = document.getElementById("plz").value;
+	var ort = document.getElementById("ort").value;
+	var iban = document.getElementById("iban").value;
+
+	console.log(vorname);
+	console.log(nachname);
+	console.log(strasse);
+	console.log(hausnummer);
+	console.log(plz);
+	console.log(ort);
+	console.log(iban);
+
+	var data = {
+		vorname: vorname,
+		nachname: nachname,
+		strasse: strasse,
+		hausnummer: hausnummer,
+		plz: plz,
+		ort: ort,
+		iban: iban,
+	};
+
+	console.log(data);
+
+	var datajson = JSON.stringify(data); // JSON-Object to String in var datajson ablegen
+
+	console.log(datajson);
+
+	// Verschicken der Daten
+	fetch(url,
+		{
+			headers: { "Content-Type": "application/json" },
+			method: "POST", // "GET"
+			body: datajson // Der body muss ein string sein,deshalb die Umwandlung 
+		}
+	).then(alert("Datensatz wurde angelegt"));
+}
+
 document.getElementById("suchestarten").addEventListener("click",mit_suche_daten_abrufen);
+document.getElementById("absenden").addEventListener("click", verschicken);
