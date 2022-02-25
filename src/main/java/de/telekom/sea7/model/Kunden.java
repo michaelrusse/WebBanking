@@ -52,4 +52,9 @@ public class Kunden implements Iterable<Kunde> {
 		return kundenArrayList.get(index);
 	}
 
+	public void delete(int kundenummer) {
+		kundenArrayList.remove(kundenummer);
+		
+	}
+
 }
