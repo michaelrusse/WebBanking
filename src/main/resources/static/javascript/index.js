@@ -131,6 +131,12 @@ function update(){
 			body: datajson // Der body muss ein string sein,deshalb die Umwandlung 
 	}).then(alert("Datensatz wurde geändert"));
 }
+
+//function gutenTag (){
+//	alert("Diese Seite verwendet Cookies. Bitte bestätigen Sie den Erhalt)")
+//};
+
+//gutenTag();
 document.getElementById("suchestarten").addEventListener("click", mit_suche_daten_abrufen);
 document.getElementById("absenden").addEventListener("click", verschicken);
 document.getElementById("update").addEventListener("click", update);

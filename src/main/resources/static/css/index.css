@@ -40,81 +40,81 @@ input[type="text"] {
 	
 	border: 2px solid black;
 	color: mediumvioletred;
-	height: 30px;
+	height: 20px;
 }
 
 #bic {
 	border: 2px solid black;
 	color: mediumvioletred;
-	height: 30px;
+	height: 20px;
 }
 
 #iban {
 	border: 2px solid black;
 	color: mediumvioletred;
-	height: 30px;
+	height: 20px;
 }
 
 #betrag {
 	border: 2px solid black;
 	color: mediumvioletred;
-	height: 30px;
+	height: 20px;
 }
 
 #datum {
 	border: 2px solid black;
 	color: mediumvioletred;
-	height: 30px;
+	height: 20px;
 }
 
 #eingabe {
 	margin-left: 740px;
 	border: 2px solid black;
 	color: mediumvioletred;
-	height: 30px
+	height: 20px
 }
 
 #verwendungszweck {
 	border: 2px solid black;
 	color: mediumvioletred;
-	height: 30px
+	height: 20px
 }
 
 #vorname {
 	
 	border: 2px solid black;
 	color: mediumvioletred;
-	height: 30px;
+	height: 20px;
 }
 
 #nachname {
 	border: 2px solid black;
 	color: mediumvioletred;
-	height: 30px;
+	height: 20px;
 }
 
 #strasse {
 	border: 2px solid black;
 	color: mediumvioletred;
-	height: 30px;
+	height: 20px;
 }
 
 #hausnummer {
 	border: 2px solid black;
 	color: mediumvioletred;
-	height: 30px;
+	height: 20px;
 }
 
 #plz {
 	border: 2px solid black;
 	color: mediumvioletred;
-	height: 30px;
+	height: 20px;
 }
 
 #ort {
 	border: 2px solid black;
 	color: mediumvioletred;
-	height: 30px
+	height: 20px
 }
 
 body {
@@ -133,7 +133,7 @@ body {
 
 #hauptmenue{
 	
-	margin-left: 800px;
+	margin-left: 815px;
 }
 
 #ausgabe{
@@ -148,4 +148,24 @@ body {
 #tabelle{
 	
 	margin-left: 350px;
+}
+
+#tabelle2{
+	
+	margin-left: 450px;
+}
+
+#button1{
+	
+	margin-left: 50px;
+}
+
+footer{
+position: fixed;
+left: 0;
+bottom: 0;
+width: 100%;
+background-color: black;
+color: white;
+text-align: center;
 }
