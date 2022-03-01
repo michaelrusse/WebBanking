@@ -5,8 +5,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "Zahlungen2")
 public class EntityZahlungen {
 
 	@Id
@@ -19,15 +21,15 @@ public class EntityZahlungen {
 	private String verwendungszweck;
 	private LocalDateTime datum;
 
+	public EntityZahlungen() {
+	}
+
 	public Long getId() {
 		return id;
 	}
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public EntityZahlungen() {
 	}
 
 	public float getBetrag() {
