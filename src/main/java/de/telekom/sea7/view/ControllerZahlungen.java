@@ -1,5 +1,7 @@
 package de.telekom.sea7.view;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,9 +11,11 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import de.telekom.sea7.entity.EntityZahlungen;
 import de.telekom.sea7.model.Zahlung;
 import de.telekom.sea7.model.Zahlungen;
 import de.telekom.sea7.services.*;
+import de.telekom.sea7.repository.*;
 
 @RestController
 public class ControllerZahlungen {
@@ -19,38 +23,33 @@ public class ControllerZahlungen {
 	private ZahlungenService zahlungenService;
 
 	@GetMapping("/zahlungen/")
-	public Zahlungen getZahlungen() {
+	public Iterable<EntityZahlungen> getZahlungen() {
 		return zahlungenService.getZahlungen();
 
 	}
 
-	@GetMapping("/zahlung/{zahlungnummer}")
-	public Zahlung getZahlung(@PathVariable("zahlungnummer") int zahlungnummer) {
-		return zahlungenService.getZahlungen().getZahlung(zahlungnummer);
+	@GetMapping("/zahlung/{id}")
+	public Optional<EntityZahlungen> getZahlung(@PathVariable("id") long id) {
+		return zahlungenService.getZahlung(id);
 	}
 
 	@PostMapping("/zahlung/")
-	public String addZahlungen(@RequestBody Zahlung zahlung) {
-		Zahlungen zahlungen;
-		zahlungen = zahlungenService.getZahlungen();
-		zahlungen.add(zahlung);
+	public String addZahlungen(@RequestBody EntityZahlungen zahlung) {
+
+		zahlungenService.addZahlung(zahlung);
 		return "Zahlung raus";
 	}
-	
-	@PutMapping("/zahlung/{zahlungsnummer}")
-	public Zahlung updateZahlung(@RequestBody Zahlung zahlung,@PathVariable(name ="zahlungsnummer") int zahlungsnummer) {
-		Zahlungen zahlungen;
-		zahlungen = zahlungenService.getZahlungen();
-		zahlungen.delete(zahlungsnummer);
-		zahlungen.add(zahlung);
+
+	@PutMapping("/zahlung/{id}")
+	public EntityZahlungen updateZahlung(@RequestBody EntityZahlungen zahlung, @PathVariable(name = "id") long id) {
+		zahlungenService.deleteZahlung(id);
+		zahlungenService.addZahlung(zahlung);
 		return null;
 	}
-	
-	@DeleteMapping("/zahlung/{zahlungsnummer}")
-	public Zahlung deleteZahlung(@PathVariable("zahlungsnummer") int zahlungsnummer) {
-		Zahlungen zahlungen;
-		zahlungen = zahlungenService.getZahlungen();
-		zahlungen.delete(zahlungsnummer);
+
+	@DeleteMapping("/zahlung/{id}")
+	public String deleteZahlung(@PathVariable("id") long id) {
+		zahlungenService.deleteZahlung(id);
 		return null;
 	}
 

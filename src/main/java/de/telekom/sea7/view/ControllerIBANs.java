@@ -40,12 +40,12 @@ public class ControllerIBANs {
 	}
 	
 	@PutMapping("/iban/{ibanid}")
-	public String addIban(@RequestBody IBAN iban,@PathVariable("ibanid") int ibanid) throws SQLException {
+	public IBAN updateIban(@RequestBody IBAN iban,@PathVariable("ibanid") int ibanid) throws SQLException {
 		IBANs ibans;
 		ibans = ibansService.getIbans();
 		ibans.delete(ibanid);
 		ibans.add(iban);
-		return "Neue IBAN angelegt";
+		return null;
 	}
 	
 	@DeleteMapping("/iban/{ibanid}")

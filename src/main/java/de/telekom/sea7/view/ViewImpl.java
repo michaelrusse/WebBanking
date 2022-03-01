@@ -1,4 +1,4 @@
-package de.telekom.sea7.view;
+/*package de.telekom.sea7.view;
 import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,5 +63,5 @@ public class ViewImpl {
 		return "[" + json + "]";
 	}
 
-}
+}*/
 
