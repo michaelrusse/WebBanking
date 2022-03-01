@@ -32,6 +32,19 @@ public class ControllerZahlungen {
 	public Optional<EntityZahlungen> getZahlung(@PathVariable("id") long id) {
 		return zahlungenService.getZahlung(id);
 	}
+	
+/*	@GetMapping("/zahlung/{id}")
+	public EntityZahlungen getZahlung(@PathVariable("id") long id) {
+		Optional<EntityZahlungen> ergebnis = zahlungenService.getZahlung(id);
+		if (ergebnis.isPresent()) {
+			return ergebnis.get();
+		} else {
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Die angefragte ID gibt es nicht!");
+		}
+	}
+	
+	/Mit dieser Methode wird eine Suche mit unbekanter ID auf eine 404 Exception umgeleitet.
+	*/
 
 	@PostMapping("/zahlung/")
 	public String addZahlungen(@RequestBody EntityZahlungen zahlung) {
@@ -42,15 +55,17 @@ public class ControllerZahlungen {
 
 	@PutMapping("/zahlung/{id}")
 	public EntityZahlungen updateZahlung(@RequestBody EntityZahlungen zahlung, @PathVariable(name = "id") long id) {
-		zahlungenService.deleteZahlung(id);
-		zahlungenService.addZahlung(zahlung);
-		return null;
+//		zahlungenService.deleteZahlung(id);
+//		zahlungenService.addZahlung(zahlung); 
+		//Alternative aber erst wird der Datensatz gelöschtund dann mit neur id angelegt.
+		zahlungenService.updateZahlung(zahlung, id);
+		return zahlung;
 	}
 
 	@DeleteMapping("/zahlung/{id}")
 	public String deleteZahlung(@PathVariable("id") long id) {
 		zahlungenService.deleteZahlung(id);
-		return null;
+		return "Datensatz gelöscht";
 	}
 
 }

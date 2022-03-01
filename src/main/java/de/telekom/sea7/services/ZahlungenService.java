@@ -13,26 +13,31 @@ public class ZahlungenService {
 
 	@Autowired
 	private ZahlungenRepository repository;
-	
+
 	public EntityZahlungen addZahlung(EntityZahlungen zahlung) {
-		 EntityZahlungen zahlung2 = repository.save(zahlung);
+		EntityZahlungen zahlung2 = repository.save(zahlung);
 		return zahlung2;
 	}
 
-	public Iterable<EntityZahlungen>  getZahlungen() {
+	public Iterable<EntityZahlungen> getZahlungen() {
 		Iterable<EntityZahlungen> zahlungen = repository.findAll();
 		return zahlungen;
 	}
 
+	public Optional<EntityZahlungen> getZahlung(long id) {
+		Optional<EntityZahlungen> zahlung = repository.findById(id);
+		return zahlung;
+	}
 
-	public  Optional<EntityZahlungen> getZahlung(long id) {
-		 Optional<EntityZahlungen> zahlung = repository.findById(id);
-		 return zahlung;
-		}
-	
 	public String deleteZahlung(long id) {
 		repository.deleteById(id);
-		 return "Datensatz gelöscht";
+		return "Datensatz gelöscht";
+	}
+
+	public EntityZahlungen updateZahlung(EntityZahlungen zahlung, long id) {
+		EntityZahlungen zahlung2 = repository.save(zahlung);
+		return zahlung2;
+
 	}
 
 }
