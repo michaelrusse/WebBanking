@@ -10,6 +10,11 @@ function empfaenger1(antwort) {
 
 function empfaenger2(zahlung) {  //return von empfänger1 wird an empänger 2 übergeben.
 	//	console.log(zahlung);
+	if (zahlung == null){
+		alert("Diese ID gibt es nicht in der Datenbank")
+	}
+	
+	else{
 	console.log(zahlung.betrag);
 	console.log(zahlung.empfaenger);
 	console.log(zahlung.iban);
@@ -23,6 +28,7 @@ function empfaenger2(zahlung) {  //return von empfänger1 wird an empänger 2 ü
 	document.getElementById("bic").value = zahlung.bic;
 	document.getElementById("verwendungszweck").value = zahlung.verwendungszweck;
 	document.getElementById("datum").value = zahlung.datum;
+	}
 }
 
 function mit_suche_daten_abrufen() {
@@ -111,6 +117,7 @@ function update(){
 	var datum = document.getElementById("datum").value;
 	
 	var data = {
+		id: key,
 		empfaenger: empfaenger,
 		betrag: betrag,
 		iban: iban,
