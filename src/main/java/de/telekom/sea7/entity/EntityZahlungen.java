@@ -5,10 +5,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "`Kontoauszug`")
+@Table(name = "zahlungen")
 
 public class EntityZahlungen {
 
@@ -17,10 +19,14 @@ public class EntityZahlungen {
 	private Long id;
 	private float betrag;
 	private String empfaenger;
-	private String iban;
-	private String bic;
+//	private int iban_id;
 	private String verwendungszweck;
 	private LocalDateTime datum;
+	
+	@ManyToOne
+    @JoinColumn(name = "iban_id")
+	private EntityIBAN entityIBAN;
+	
 
 	public EntityZahlungen() {
 	}
@@ -49,21 +55,13 @@ public class EntityZahlungen {
 		this.empfaenger = empfaenger;
 	}
 
-	public String getIban() {
-		return iban;
-	}
+//	public int getIban_id() {
+//		return iban_id;
+//	}
 
-	public void setIban(String iban) {
-		this.iban = iban;
-	}
-
-	public String getBic() {
-		return bic;
-	}
-
-	public void setBic(String bic) {
-		this.bic = bic;
-	}
+//	public void setIban_id(int iban_id) {
+//		this.iban_id = iban_id;
+//	}
 
 	public String getVerwendungszweck() {
 		return verwendungszweck;
@@ -80,4 +78,6 @@ public class EntityZahlungen {
 	public void setDatum(LocalDateTime datum) {
 		this.datum = datum;
 	}
+
+	
 }
