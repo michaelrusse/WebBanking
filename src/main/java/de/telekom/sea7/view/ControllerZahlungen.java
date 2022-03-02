@@ -12,10 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import de.telekom.sea7.entity.EntityZahlungen;
-import de.telekom.sea7.model.Zahlung;
-import de.telekom.sea7.model.Zahlungen;
 import de.telekom.sea7.services.*;
-import de.telekom.sea7.repository.*;
+
 
 @RestController
 public class ControllerZahlungen {
