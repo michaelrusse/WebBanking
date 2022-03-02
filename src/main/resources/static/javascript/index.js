@@ -75,6 +75,8 @@ function verschicken() {
 		verwendungszweck: verwendungszweck,
 		datum: datum,
 	};
+	
+	
 
 	console.log(data);
 
