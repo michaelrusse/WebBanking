@@ -12,8 +12,8 @@ function empfaenger2(zahlungen){  //return von empfänger1 wird an empänger 2 �
 	console.log(zahlungen);
 //    console.log(zahlung.betrag);
 //    console.log(zahlung.empfaenger);
-//    console.log(zahlung.iban);
-//    console.log(zahlung.bic);
+//    console.log(zahlung.entityIBAN.iban);
+//    console.log(zahlung.entityIBAN.entityBIC.bic);
 //    console.log(zahlung.verwendungszweck);
 //    console.log(zahlung.datum);
     for (var zahlung in zahlungen){
@@ -25,9 +25,9 @@ function empfaenger2(zahlungen){  //return von empfänger1 wird an empänger 2 �
  		+ "</td><td>"
  		+ zahlungen[zahlung].betrag
  		+ "</td><td>"
- 		+ zahlungen[zahlung].iban
+ 		+ zahlungen[zahlung].entityIBAN.iban
  		+ "</td><td>"
- 		+ zahlungen[zahlung].bic
+ 		+ zahlungen[zahlung].entityIBAN.entityBIC.bic
  		+ "</td><td>"
  		+ zahlungen[zahlung].verwendungszweck
  		+"</td><td>"

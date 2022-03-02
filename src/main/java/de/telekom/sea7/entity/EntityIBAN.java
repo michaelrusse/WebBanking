@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -14,7 +16,11 @@ public class EntityIBAN {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	private String iban;
-	private int bic_id;
+	
+	
+	@ManyToOne
+    @JoinColumn(name = "bic_id")
+	private EntityBIC entityBIC;
 	
 	public EntityIBAN() {
 	}
@@ -36,12 +42,14 @@ public class EntityIBAN {
 		this.iban = iban;
 	}
 
-	public int getBic_id() {
-		return bic_id;
+
+	public EntityBIC getEntityBIC() {
+		return entityBIC;
 	}
 
-	public void setBic_id(int bic_id) {
-		this.bic_id = bic_id;
+
+	public void setEntityBIC(EntityBIC entityBIC) {
+		this.entityBIC = entityBIC;
 	}
 
 }

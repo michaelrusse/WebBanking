@@ -19,7 +19,6 @@ public class EntityZahlungen {
 	private Long id;
 	private float betrag;
 	private String empfaenger;
-//	private int iban_id;
 	private String verwendungszweck;
 	private LocalDateTime datum;
 	
@@ -55,14 +54,6 @@ public class EntityZahlungen {
 		this.empfaenger = empfaenger;
 	}
 
-//	public int getIban_id() {
-//		return iban_id;
-//	}
-
-//	public void setIban_id(int iban_id) {
-//		this.iban_id = iban_id;
-//	}
-
 	public String getVerwendungszweck() {
 		return verwendungszweck;
 	}
@@ -77,6 +68,14 @@ public class EntityZahlungen {
 
 	public void setDatum(LocalDateTime datum) {
 		this.datum = datum;
+	}
+
+	public EntityIBAN getEntityIBAN() {
+		return entityIBAN;
+	}
+
+	public void setEntityIBAN(EntityIBAN entityIBAN) {
+		this.entityIBAN = entityIBAN;
 	}
 
 	

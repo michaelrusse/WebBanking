@@ -17,15 +17,15 @@ function empfaenger2(zahlung) {  //return von empfänger1 wird an empänger 2 ü
 	else{
 	console.log(zahlung.betrag);
 	console.log(zahlung.empfaenger);
-	console.log(zahlung.iban);
-	console.log(zahlung.bic);
+	console.log(zahlung.entityIBAN.iban);
+	console.log(zahlung.entityIBAN.entityBIC.bic);
 	console.log(zahlung.verwendungszweck);
 	console.log(zahlung.datum);
 
 	document.getElementById("betrag").value = zahlung.betrag;
 	document.getElementById("empfaenger").value = zahlung.empfaenger;
-	document.getElementById("iban").value = zahlung.iban;
-	document.getElementById("bic").value = zahlung.bic;
+	document.getElementById("iban").value = zahlung.entityIBAN.iban;
+	document.getElementById("bic").value = zahlung.entityIBAN.entityBIC.bic;
 	document.getElementById("verwendungszweck").value = zahlung.verwendungszweck;
 	document.getElementById("datum").value = zahlung.datum;
 	}
