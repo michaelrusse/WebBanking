@@ -10,24 +10,24 @@ function empfaenger1(antwort) {
 
 function empfaenger2(zahlung) {  //return von empfänger1 wird an empänger 2 übergeben.
 	//	console.log(zahlung);
-	if (zahlung == null){
+	if (zahlung == null) {
 		alert("Diese ID gibt es nicht in der Datenbank")
 	}
-	
-	else{
-	console.log(zahlung.betrag);
-	console.log(zahlung.empfaenger);
-	console.log(zahlung.entityIBAN.iban);
-	console.log(zahlung.entityIBAN.entityBIC.bic);
-	console.log(zahlung.verwendungszweck);
-	console.log(zahlung.datum);
 
-	document.getElementById("betrag").value = zahlung.betrag;
-	document.getElementById("empfaenger").value = zahlung.empfaenger;
-	document.getElementById("iban").value = zahlung.entityIBAN.iban;
-	document.getElementById("bic").value = zahlung.entityIBAN.entityBIC.bic;
-	document.getElementById("verwendungszweck").value = zahlung.verwendungszweck;
-	document.getElementById("datum").value = zahlung.datum;
+	else {
+		console.log(zahlung.betrag);
+		console.log(zahlung.empfaenger);
+		console.log(zahlung.entityIBAN.iban);
+		console.log(zahlung.entityIBAN.entityBIC.bic);
+		console.log(zahlung.verwendungszweck);
+		console.log(zahlung.datum);
+
+		document.getElementById("betrag").value = zahlung.betrag;
+		document.getElementById("empfaenger").value = zahlung.empfaenger;
+		document.getElementById("iban").value = zahlung.entityIBAN.iban;
+		document.getElementById("bic").value = zahlung.entityIBAN.entityBIC.bic;
+		document.getElementById("verwendungszweck").value = zahlung.verwendungszweck;
+		document.getElementById("datum").value = zahlung.datum;
 	}
 }
 
@@ -75,8 +75,8 @@ function verschicken() {
 		verwendungszweck: verwendungszweck,
 		datum: datum,
 	};
-	
-	
+
+
 
 	console.log(data);
 
@@ -94,30 +94,30 @@ function verschicken() {
 	).then(alert("Datensatz wurde angelegt"));
 }
 
-function loeschen(){
+function loeschen() {
 	var key = document.getElementById("eingabe").value;
 	//Verarbeitung
 	fetch("/zahlung/" + key,
-	{
-//		headers: { "Content-Type": "application/json" },
+		{
+			//		headers: { "Content-Type": "application/json" },
 			method: "DELETE", // "GET"
-//			body: key // Der body muss ein string sein,deshalb die Umwandlung 
-	}).then(alert("Datensatz wurde gelöscht"));
+			//			body: key // Der body muss ein string sein,deshalb die Umwandlung 
+		}).then(alert("Datensatz wurde gelöscht"));
 
 
 }
 
-function update(){
-		
+function update() {
+
 	var key = document.getElementById("eingabe").value;
-	
+
 	var empfaenger = document.getElementById("empfaenger").value; // statt "Paul" ... ?
 	var betrag = document.getElementById("betrag").value;
 	var iban = document.getElementById("iban").value;
 	var bic = document.getElementById("bic").value;
 	var verwendungszweck = document.getElementById("verwendungszweck").value;
 	var datum = document.getElementById("datum").value;
-	
+
 	var data = {
 		id: key,
 		empfaenger: empfaenger,
@@ -134,11 +134,11 @@ function update(){
 
 	console.log(datajson);
 	fetch("/zahlung/" + key,
-	{
-		headers: { "Content-Type": "application/json" },
+		{
+			headers: { "Content-Type": "application/json" },
 			method: "PUT", // "GET"
 			body: datajson // Der body muss ein string sein,deshalb die Umwandlung 
-	}).then(alert("Datensatz wurde geändert"));
+		}).then(alert("Datensatz wurde geändert"));
 }
 
 //function gutenTag (){
