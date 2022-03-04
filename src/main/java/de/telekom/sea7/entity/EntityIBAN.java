@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 
 
 @Entity
@@ -38,7 +40,7 @@ public class EntityIBAN {
 	public void setId(long id) {
 		this.id = id;
 	}
-
+	@JsonProperty("IBAN")
 	public String getIban() {
 		return iban;
 	}
