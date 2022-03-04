@@ -2,6 +2,7 @@ package de.telekom.sea7.entity;
 
 
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,7 +23,7 @@ public class EntityIBAN {
 	private String iban;
 	
 	
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.PERSIST)
     @JoinColumn(name = "bic_id")
 	private EntityBIC entityBIC;
 	

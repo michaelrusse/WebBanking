@@ -55,8 +55,8 @@ function verschicken() {
 
 	var empfaenger = document.getElementById("empfaenger").value; // statt "Paul" ... ?
 	var betrag = document.getElementById("betrag").value;
-	var iban = document.getElementById("iban").value;
-	var bic = document.getElementById("bic").value;
+	var entityBIC = {bic:document.getElementById("bic").value};
+	var entityIBAN = {iban:document.getElementById("iban").value, entityBIC:entityBIC};
 	var verwendungszweck = document.getElementById("verwendungszweck").value;
 	var datum = document.getElementById("datum").value;
 
@@ -70,8 +70,7 @@ function verschicken() {
 	var data = {
 		empfaenger: empfaenger,
 		betrag: betrag,
-		iban: iban,
-		bic: bic,
+		entityIBAN: entityIBAN,
 		verwendungszweck: verwendungszweck,
 		datum: datum,
 	};
@@ -113,17 +112,23 @@ function update() {
 
 	var empfaenger = document.getElementById("empfaenger").value; // statt "Paul" ... ?
 	var betrag = document.getElementById("betrag").value;
-	var iban = document.getElementById("iban").value;
-	var bic = document.getElementById("bic").value;
+	var entityBIC = {bic:document.getElementById("bic").value};
+	var entityIBAN = {iban:document.getElementById("iban").value, entityBIC:entityBIC};
 	var verwendungszweck = document.getElementById("verwendungszweck").value;
 	var datum = document.getElementById("datum").value;
+
+	console.log(empfaenger);
+	console.log(betrag);
+	console.log(iban);
+	console.log(bic);
+	console.log(verwendungszweck);
+	console.log(datum);
 
 	var data = {
 		id: key,
 		empfaenger: empfaenger,
 		betrag: betrag,
-		iban: iban,
-		bic: bic,
+		entityIBAN: entityIBAN,
 		verwendungszweck: verwendungszweck,
 		datum: datum,
 	};
