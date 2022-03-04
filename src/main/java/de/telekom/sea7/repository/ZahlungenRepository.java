@@ -9,4 +9,6 @@ import de.telekom.sea7.entity.EntityZahlungen;  // adapt as needed
 @Repository
 public interface ZahlungenRepository extends JpaRepository<EntityZahlungen, Long> {
 
+	Iterable<EntityZahlungen> findByEmpfaenger(String empfaenger);
+	
 }

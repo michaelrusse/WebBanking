@@ -55,7 +55,7 @@ public class ControllerZahlungen {
 	public EntityZahlungen updateZahlung(@RequestBody EntityZahlungen zahlung, @PathVariable(name = "id") long id) {
 //		zahlungenService.deleteZahlung(id);
 //		zahlungenService.addZahlung(zahlung); 
-		//Alternative aber erst wird der Datensatz gelöschtund dann mit neur id angelegt.
+		//Alternative aber erst wird der Datensatz gelöschtund dann mit neuer id angelegt.
 		zahlungenService.updateZahlung(zahlung, id);
 		return zahlung;
 	}
