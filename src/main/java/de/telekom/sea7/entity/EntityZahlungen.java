@@ -1,6 +1,8 @@
 package de.telekom.sea7.entity;
 
 import java.time.LocalDateTime;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,7 +24,7 @@ public class EntityZahlungen {
 	private String verwendungszweck;
 	private LocalDateTime datum;
 	
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name = "iban_id")
 	private EntityIBAN entityIBAN;
 	
