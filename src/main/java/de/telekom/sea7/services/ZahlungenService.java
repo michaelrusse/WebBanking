@@ -35,9 +35,10 @@ public class ZahlungenService {
 	}
 
 	public EntityZahlungen updateZahlung(EntityZahlungen zahlung, long id) {
-		EntityZahlungen zahlung2 = repository.save(zahlung);
-		return zahlung2;
-
+//		EntityZahlungen zahlung2 = repository.save(zahlung);
+//		return zahlung2;
+		repository.save(zahlung);
+		return zahlung;
 	}
 
 }

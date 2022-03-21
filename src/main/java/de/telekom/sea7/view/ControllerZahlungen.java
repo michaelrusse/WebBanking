@@ -56,6 +56,8 @@ public class ControllerZahlungen {
 //		zahlungenService.deleteZahlung(id);
 //		zahlungenService.addZahlung(zahlung); 
 		//Alternative aber erst wird der Datensatz gelöschtund dann mit neuer id angelegt.
+		System.out.println(zahlung);
+		System.out.println(zahlung.getEntityIBAN());
 		System.out.println(zahlung.getEntityIBAN().getIban());
 		zahlungenService.updateZahlung(zahlung, id);
 		return zahlung;

@@ -17,14 +17,14 @@ function empfaenger2(zahlung) {  //return von empfänger1 wird an empänger 2 ü
 	else {
 		console.log(zahlung.betrag);
 		console.log(zahlung.empfaenger);
-		console.log(zahlung.entityIBAN.IBAN);
+		console.log(zahlung.entityIBAN.iban);
 		console.log(zahlung.entityIBAN.entityBIC.bic);
 		console.log(zahlung.verwendungszweck);
 		console.log(zahlung.datum);
 
 		document.getElementById("betrag").value = zahlung.betrag;
 		document.getElementById("empfaenger").value = zahlung.empfaenger;
-		document.getElementById("iban").value = zahlung.entityIBAN.IBAN;
+		document.getElementById("iban").value = zahlung.entityIBAN.iban;
 		document.getElementById("bic").value = zahlung.entityIBAN.entityBIC.bic;
 		document.getElementById("verwendungszweck").value = zahlung.verwendungszweck;
 		document.getElementById("datum").value = zahlung.datum;
@@ -55,15 +55,15 @@ function verschicken() {
 
 	var empfaenger = document.getElementById("empfaenger").value; // statt "Paul" ... ?
 	var betrag = document.getElementById("betrag").value;
-	var entityBIC = {bic:document.getElementById("bic").value};
-	var entityIBAN = {IBAN:document.getElementById("iban").value, entityBIC:entityBIC};
+	var entityBIC = { bic: document.getElementById("bic").value };
+	var entityIBAN = { iban: document.getElementById("iban").value, entityBIC: entityBIC };
 	var verwendungszweck = document.getElementById("verwendungszweck").value;
 	var datum = document.getElementById("datum").value;
 
 	console.log(empfaenger);
 	console.log(betrag);
-	console.log(iban);
-	console.log(bic);
+	console.log(entityIBAN);
+	console.log(entityBIC);
 	console.log(verwendungszweck);
 	console.log(datum);
 
@@ -106,10 +106,10 @@ function loeschen() {
 
 }
 
-function update() {
+/*function update() {
 
 	var key = document.getElementById("eingabe").value;
-
+	
 	var empfaenger = document.getElementById("empfaenger").value; // statt "Paul" ... ?
 	var betrag = document.getElementById("betrag").value;
 	var entityBIC = {bic:document.getElementById("bic").value};
@@ -144,6 +144,52 @@ function update() {
 			method: "PUT", // "GET"
 			body: datajson // Der body muss ein string sein,deshalb die Umwandlung 
 		}).then(alert("Datensatz wurde geändert"));
+}*/
+
+function update() {
+	var key = document.getElementById("eingabe").value;
+	var url = "/zahlung/" + key;
+	var id = key
+	var empfaenger = document.getElementById("empfaenger").value; // statt "Paul" ... ?
+	var betrag = document.getElementById("betrag").value;
+	var entityBIC = { bic: document.getElementById("bic").value };
+	var entityIBAN = { iban: document.getElementById("iban").value, entityBIC: entityBIC };
+	var verwendungszweck = document.getElementById("verwendungszweck").value;
+	var datum = document.getElementById("datum").value;
+
+	console.log(empfaenger);
+	console.log(betrag);
+	console.log(entityIBAN);
+	console.log(entityBIC);
+	console.log(verwendungszweck);
+	console.log(datum);
+
+	var data = {
+		id: key,
+		empfaenger: empfaenger,
+		betrag: betrag,
+		entityIBAN: entityIBAN,
+		verwendungszweck: verwendungszweck,
+		datum: datum,
+	};
+
+
+
+	console.log(data);
+
+	var datajson = JSON.stringify(data); // JSON-Object to String in var datajson ablegen
+
+	console.log(datajson);
+
+	// Verschicken der Daten
+	fetch(url,
+		{
+			headers: { "Content-Type": "application/json" },
+			method: "PUT", // "GET"
+			body: datajson // Der body muss ein string sein,deshalb die Umwandlung
+		}
+	).then(alert("Datensatz wurde geaendert"));
+
 }
 
 //function gutenTag (){

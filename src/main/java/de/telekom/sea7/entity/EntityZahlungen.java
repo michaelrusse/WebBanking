@@ -24,7 +24,7 @@ public class EntityZahlungen {
 	private String verwendungszweck;
 	private LocalDateTime datum;
 	
-	@ManyToOne(cascade=CascadeType.PERSIST)
+	@ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name = "iban_id")
 	private EntityIBAN entityIBAN;
 	

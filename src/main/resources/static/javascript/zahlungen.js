@@ -12,7 +12,7 @@ function empfaenger2(zahlungen){  //return von empfänger1 wird an empänger 2 �
 	console.log(zahlungen);
 //    console.log(zahlung.betrag);
 //    console.log(zahlung.empfaenger);
-//    console.log(zahlung.entityIBAN.iban);
+//    console.log(zahlung.entityIBAN.IBAN);
 //    console.log(zahlung.entityIBAN.entityBIC.bic);
 //    console.log(zahlung.verwendungszweck);
 //    console.log(zahlung.datum);

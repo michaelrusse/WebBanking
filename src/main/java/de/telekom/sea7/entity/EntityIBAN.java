@@ -25,7 +25,7 @@ public class EntityIBAN {
 	private String iban;
 	
 	
-	@ManyToOne(cascade=CascadeType.PERSIST)
+	@ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name = "bic_id")
 	private EntityBIC entityBIC;
 	
@@ -40,7 +40,7 @@ public class EntityIBAN {
 	public void setId(long id) {
 		this.id = id;
 	}
-	@JsonProperty("IBAN")
+	
 	public String getIban() {
 		return iban;
 	}
