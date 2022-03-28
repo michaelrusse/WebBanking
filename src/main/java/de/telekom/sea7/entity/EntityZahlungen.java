@@ -15,6 +15,18 @@ import javax.persistence.Table;
 @Table(name = "zahlungen")
 
 public class EntityZahlungen {
+	
+	/**
+	 * @ID spezifiziert den Primary Key der Entity.
+	 * @GeneratedValue:Sorgt für die Spezifikation von Generierungsstrategien für
+	 *                       die Werte von Primärschlüsseln. Die
+	 *                       GeneratedValue-Anmerkung kann in Verbindung mit der
+	 *                       Id-Anmerkung auf eine Primärschlüsseleigenschaft oder
+	 *                       ein Feld einer Entität oder einer zugeordneten
+	 *                       Superklasse angewendet werden. Die Verwendung der
+	 *                       GeneratedValue-Annotation muss nur für einfache
+	 *                       Primärschlüssel unterstützt werden.
+	 */
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
